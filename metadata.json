@@ -1,0 +1,6 @@
+{
+  "name": "VIBELOK",
+  "description": "An immersive, multi-world Indian music experience across five atmospheric cultural worlds.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

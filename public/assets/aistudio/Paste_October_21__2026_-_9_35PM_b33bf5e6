@@ -1,0 +1,914 @@
+# MASTER BUILD PROMPT — VIBELOK
+## An immersive, multi-world Indian music experience
+
+### YOUR ROLE
+
+Act as a senior full-stack engineer, principal UI/UX designer, creative director, frontend architect, music-player integration specialist, accessibility engineer and QA tester.
+
+Your task is to DESIGN, BUILD, TEST and REFINE a complete, responsive, functional web application called **VIBELOK**.
+
+Do not merely provide a plan, tutorial, mockup, static HTML preview or sample code. Build the actual application in the current Google AI Studio project, create all necessary files, run the available preview and fix errors.
+
+The finished website should feel like an extraordinary interactive music experience in which users enter different Indian cultural, emotional and generational worlds through artwork and music.
+
+The five worlds are:
+
+1. 90s Carvan
+2. Dil Tuta Aashiq
+3. Safar-e-Car
+4. Shaadi Wala Ghar
+5. Mahaul-e-GenZ
+
+The user will supply five background images as attachments. Treat those images as the primary visual assets and match each one to its corresponding theme.
+
+I will manually refine the song catalogue later. You must create the complete playlist system and provide 20 editable starter tracks for every theme.
+
+---
+
+# 1. NON-NEGOTIABLE PRODUCT VISION
+
+Build a visually exceptional, music-centred experience.
+
+The website must not resemble a conventional streaming dashboard, generic music website, admin panel or SaaS landing page.
+
+Its core purpose is emotional immersion.
+
+A user should be able to:
+
+1. Open the website.
+2. Choose one of five distinct themes.
+3. Enter a full-screen, immersive theme environment.
+4. See the selected theme's background artwork.
+5. Play music associated with that theme.
+6. Control playback using a compact, attractive player.
+7. Change to another theme at any time.
+8. Customise the selected theme's playlist by adding, removing and reordering tracks.
+9. Keep their playlist changes between visits on the same browser without creating an account.
+10. Restore the original default playlist whenever desired.
+
+Prioritise the quality of the visual experience, reliable playback, performance, accessibility and simplicity.
+
+The site must be responsive on desktop, tablets and mobile phones.
+
+Use a coherent, reusable architecture rather than five independently implemented pages.
+
+---
+
+# 2. MANDATORY TECHNICAL RULES
+
+Use Google AI Studio's supported full-stack web development environment.
+
+Preferred stack:
+
+- React with TypeScript.
+- Vite or the environment's existing supported build system.
+- Modern CSS with CSS variables.
+- Lucide React icons, if compatible.
+- Motion for React only if animation genuinely benefits the experience.
+- The official YouTube IFrame Player API for eligible YouTube video playback.
+- Browser localStorage for anonymous, device-local playlist customisation.
+- Browser session state or localStorage for appropriate interface preferences.
+- A static, data-driven catalogue for all five themes.
+
+First inspect the current project and available runtime. Reuse the existing working environment rather than replacing configuration unnecessarily.
+
+Do not add Firebase, authentication, a database, a Gemini API call, an external analytics service or a backend unless a specific requirement cannot reasonably be met without one.
+
+The default application should work without a paid API, paid database, paid music subscription or required user account.
+
+Do not make paid infrastructure a prerequisite.
+
+Do not introduce a server just to store static playlists or images.
+
+If the application can be completed as a client-side app, keep it client-side.
+
+Never expose private credentials in client-side code.
+
+Do not request unnecessary API keys.
+
+Do not add dependencies that are unnecessary for the product.
+
+---
+
+# 3. IMPORTANT MUSIC INTEGRATION REQUIREMENT
+
+Do not confuse YouTube Music with the YouTube Data API or the YouTube IFrame Player API.
+
+There is no general-purpose public YouTube Music playback API that permits this application to freely control the YouTube Music app and stream its full catalogue through an arbitrary custom player.
+
+Implement playback through the official YouTube IFrame Player API.
+
+Official documentation:
+
+https://developers.google.com/youtube/iframe_api_reference
+
+https://developers.google.com/youtube/player_parameters
+
+The music implementation must follow the applicable YouTube API Services Terms, developer policies, branding requirements and player requirements.
+
+Specifically:
+
+- Use the official supported embedded player.
+- Do not download, extract, proxy or separately stream YouTube audio.
+- Do not bypass advertisements, geographic restrictions, age restrictions or playback restrictions.
+- Do not misrepresent a YouTube video as a directly hosted audio file.
+- Do not create a fake player that only changes its displayed song title.
+- Do not assume that a video is playable merely because its URL is valid.
+- Do not conceal required YouTube attribution or branding.
+- Do not remove required player functionality or obstruct the YouTube player's required controls.
+- Do not use deprecated player parameters in an attempt to hide YouTube branding.
+- Do not attempt to bypass minimum embedded-player dimensions or other display requirements.
+- Do not assume that playback can start automatically with sound.
+- Support user-initiated playback when browser autoplay policies require it.
+- Provide clear error handling for unavailable, restricted or non-embeddable videos.
+
+The custom interface may complement the official embedded player only to the extent permitted by current YouTube requirements.
+
+If the required official player experience conflicts with the desired compact Spotify-style bar, prioritise compliance and working playback. Provide a well-designed, integrated player area rather than breaking the official player.
+
+Do not claim to have implemented the YouTube Music API.
+
+Do not fabricate playback, seek or duration functionality.
+
+---
+
+# 4. APPLICATION STRUCTURE
+
+Implement two main interface states.
+
+## State A: Theme selection screen
+
+The opening screen must present exactly five theme choices.
+
+Use the supplied artwork as the primary source for the theme cards wherever suitable crops are possible.
+
+The screen should include:
+
+- A carefully designed VIBELOK wordmark.
+- One short, memorable introductory line.
+- Five large, visually rich theme cards.
+- A distinct visual identity for each card.
+- Subtle hover, focus and press interactions.
+- A clear action to enter each world.
+- A responsive layout that works on touchscreens.
+
+The theme cards should not look like ordinary rectangular dashboard tiles.
+
+Use art direction, typography, overlays, negative space and carefully controlled motion to create a premium, editorial experience.
+
+Do not overload the landing page with unnecessary sections, pricing, account creation, testimonials, feature lists, footers or unrelated navigation.
+
+The user should understand the concept immediately.
+
+## State B: Immersive theme screen
+
+After a user selects a theme, transition to its immersive experience.
+
+This screen must contain only three persistent interface elements:
+
+1. The theme's background artwork.
+2. The music player.
+3. A compact Change Vibe control.
+
+Playlist editing may appear in a contextual drawer or modal opened through a small playlist-management icon inside the player.
+
+Do not keep a sidebar, permanent playlist panel, dashboard, header navigation, promotional cards, footer or unrelated controls on the main theme screen.
+
+The visual environment must remain the dominant element.
+
+Support direct navigation between themes and browser back navigation where appropriate.
+
+A user must never become trapped inside a theme.
+
+---
+
+# 5. DESIGN DIRECTION
+
+Create a sophisticated combination of cinematic realism, Indian cultural atmosphere, editorial design and carefully restrained surrealism.
+
+Avoid the appearance of an ordinary AI-generated landing page.
+
+Avoid excessive glassmorphism, random gradients, generic purple-blue SaaS aesthetics, giant rounded cards everywhere, unnecessary glowing borders and repetitive animations.
+
+The design should feel art-directed, atmospheric, emotionally specific and memorable.
+
+Use a coherent typography system.
+
+Choose fonts that render Hindi and English correctly if both scripts appear. Use reliable system fallbacks if an external font fails to load.
+
+Create theme-specific design tokens for:
+
+- Background and overlay colours.
+- Accent colours.
+- Text contrast.
+- Player surfaces.
+- Borders and shadows.
+- Typography.
+- Animation timing.
+- Interaction states.
+
+Keep controls consistent across themes while allowing the surrounding visual design to change.
+
+## Theme 1: 90s Carvan
+
+Mood: Indian nostalgia, analogue culture, old-school simplicity.
+
+Use the supplied image associated with this theme.
+
+Preserve its visual identity. Do not replace it with an unrelated generated image.
+
+Where appropriate, use a warm, faded colour grade, subtle film grain and restrained analogue-inspired details.
+
+Avoid excessive animated effects.
+
+## Theme 2: Dil Tuta Aashiq
+
+Mood: heartbreak, loneliness, reflection, midnight emotion.
+
+Use the supplied matching image.
+
+Prioritise cinematic contrast, emotional negative space and a calm interface.
+
+Use restrained transitions and avoid distracting movement.
+
+## Theme 3: Safar-e-Car
+
+Mood: freedom, night drives, road trips and changing horizons.
+
+Use the supplied matching image.
+
+Where suitable, create a subtle sense of depth and motion without making the text or controls difficult to use.
+
+## Theme 4: Shaadi Wala Ghar
+
+Mood: Indian wedding traditions, family celebration, warmth and joyful chaos.
+
+Use the supplied matching image.
+
+Keep the atmosphere rich and celebratory without cluttering the music controls.
+
+## Theme 5: Mahaul-e-GenZ
+
+Mood: contemporary youth culture, digital nostalgia, music discovery and personality.
+
+Use the supplied matching image.
+
+Use a distinctive visual language suited to the actual artwork. Do not automatically force every Gen Z design into generic neon cyberpunk.
+
+### Important background handling
+
+I will attach five background images.
+
+Inspect the supplied images and map them to the five themes based on their content.
+
+If the attachments can be identified unambiguously, assign them correctly.
+
+If filenames are unclear, inspect the actual images rather than guessing from upload order.
+
+Create a clear mapping in the code, such as:
+
+- 90s Carvan → supplied 90s Carvan background.
+- Dil Tuta Aashiq → supplied Dil Tuta Aashiq background.
+- Safar-e-Car → supplied Safar-e-Car background.
+- Shaadi Wala Ghar → supplied Shaadi Wala Ghar background.
+- Mahaul-e-GenZ → supplied Mahaul-e-GenZ background.
+
+If an image is missing or its identity is genuinely ambiguous, report the specific problem instead of silently substituting a random image.
+
+Use a sensible image-cropping strategy for different screen sizes.
+
+Ensure text and controls remain legible over bright or complex areas by using carefully positioned overlays rather than covering the entire image with an unnecessarily dark layer.
+
+Do not place permanent decorative elements over the main focal subject.
+
+Do not regenerate or materially alter my supplied artwork without permission.
+
+---
+
+# 6. MUSIC PLAYER REQUIREMENTS
+
+The player is the primary interactive component of every theme.
+
+Design it as a compact, premium music-control surface that visually belongs to the selected environment.
+
+Include the following features where supported by the actual playback implementation:
+
+1. Play.
+2. Pause.
+3. Previous track.
+4. Next track.
+5. Current track title.
+6. Artist or channel attribution where available.
+7. Current playback time.
+8. Total duration when available from the player.
+9. A functional seek bar.
+10. Volume control when supported.
+11. Mute/unmute where supported.
+12. Playlist access.
+13. Add track.
+14. Remove track.
+15. Reorder tracks.
+16. Change Vibe.
+17. Loading state.
+18. Error state.
+19. Retry or skip unavailable tracks.
+
+Every control must have a real action.
+
+Do not create decorative buttons that do nothing.
+
+Do not update the displayed title unless the playback state corresponds to the correct track.
+
+Do not simulate a changing progress bar independently of the real player.
+
+Synchronise the UI with the actual player state.
+
+Handle YouTube player events such as:
+
+- Ready.
+- State changes.
+- Errors.
+- Playback quality changes where relevant.
+- Autoplay blocked.
+
+Do not poll excessively or create unnecessary event listeners.
+
+Clean up listeners and player instances when appropriate.
+
+Avoid multiple simultaneously playing instances.
+
+When switching themes, stop or dispose of the previous player as needed before creating the new playback instance.
+
+Avoid stale React closures and race conditions.
+
+### Player layout
+
+Use a responsive composition.
+
+Desktop:
+
+- Keep the artwork as the primary visual.
+- Position the player in a visually balanced lower area or another location suited to the background.
+- Ensure the official embedded player satisfies the applicable size requirements.
+- Prevent the player from covering the image's focal subject.
+
+Mobile:
+
+- Respect screen safe areas.
+- Keep controls touch-friendly.
+- Avoid horizontal overflow.
+- Allow the official player to resize appropriately without violating its minimum requirements.
+- Ensure the theme-switch control remains reachable.
+
+The design must accommodate the real YouTube player, including its required controls and branding.
+
+Do not promise a fully custom, audio-only Spotify clone if the chosen playback source does not permit it.
+
+---
+
+# 7. PLAYLIST DATA: 100 EDITABLE STARTER TRACKS
+
+Create a complete data catalogue with five themes and exactly 20 starter track entries per theme.
+
+Total: 100 track entries.
+
+Keep the catalogue in a clearly organised, editable TypeScript or JSON data file separate from the interface components.
+
+Suggested location:
+
+src/data/themes.ts
+
+You may use a different location if the existing project architecture makes another choice more appropriate.
+
+Each theme should have:
+
+- A stable theme ID.
+- A display name.
+- A background asset path.
+- A short internal description.
+- A default track list containing 20 entries.
+
+Each track should support fields such as:
+
+- id
+- title
+- artist
+- youtubeVideoId
+- source
+- optional notes
+
+Use a stable schema and validate it.
+
+## Track selection guidance
+
+Select songs that genuinely fit the emotional and cultural identity of their theme.
+
+90s Carvan:
+Retro Hindi classics, nostalgic melodies, old-school romantic songs and vintage listening moods.
+
+Dil Tuta Aashiq:
+Heartbreak songs, soulful Hindi music, emotional ballads, ghazals and reflective melodies.
+
+Safar-e-Car:
+Road-trip music, travel anthems, open-road songs, Hindi indie and songs that suit long drives.
+
+Shaadi Wala Ghar:
+Indian wedding favourites, celebratory Bollywood songs, family dance tracks and traditional wedding music.
+
+Mahaul-e-GenZ:
+Contemporary Hindi music, Indian indie, pop, viral-era favourites and energetic youth-oriented tracks.
+
+Avoid repeating the same songs excessively across themes.
+
+Prioritise accurate song titles and artist information.
+
+### Important distinction: catalogue entries versus playable videos
+
+Do not invent YouTube video IDs.
+
+Do not assume that a song title automatically maps to a particular video.
+
+Do not fabricate API results or claim to have verified playback when no verification occurred.
+
+Populate the 100 entries with appropriate starter song metadata.
+
+Where a genuine, confidently identified video ID is available, populate it.
+
+Where the video ID is uncertain, leave it empty and mark the entry as requiring video selection.
+
+Make these entries editable through the playlist-management interface.
+
+If automated video search is implemented, use an officially supported method and respect its authentication, quota, privacy and policy requirements.
+
+Do not require the YouTube Data API merely to play a manually supplied video ID.
+
+Do not make a Google Cloud API key mandatory for the baseline application.
+
+If video search requires additional setup, provide a clean optional configuration path and a manual URL/ID input fallback.
+
+Clearly distinguish a curated metadata entry from a verified playable source.
+
+### Playlist completeness validation
+
+Create a development-time validation function that checks:
+
+- Exactly five themes exist.
+- Each theme has exactly 20 default entries.
+- Each track has a unique stable ID within its theme.
+- Track titles are non-empty.
+- Optional video IDs have the expected format.
+- No invalid IDs are silently treated as playable tracks.
+- All theme background paths resolve.
+
+Display useful development errors if the validation fails.
+
+Do not expose technical stack traces to ordinary users.
+
+---
+
+# 8. PLAYLIST MANAGEMENT INTERFACE
+
+The user must be able to customise each theme's playlist without creating an account.
+
+Open playlist management from a small icon in the main player.
+
+Use a clean drawer or modal that does not permanently occupy the immersive theme screen.
+
+Implement:
+
+### Add a track
+
+Allow users to add a song by entering a YouTube video URL or supported video ID.
+
+Validate the input.
+
+Support standard YouTube video URLs and the supported short-link format when safely identifiable.
+
+Reject unrelated domains and malformed IDs.
+
+Do not accept arbitrary URLs as direct audio sources.
+
+After adding a track, let the user edit the display title and artist if necessary.
+
+If the video ID is not verified, label it appropriately and handle playback failure.
+
+### Remove a track
+
+Let users remove individual tracks from their personal playlist.
+
+Removing a default track must not modify the canonical source catalogue.
+
+### Reorder tracks
+
+Provide accessible controls to move a track up or down.
+
+Drag-and-drop is optional; do not sacrifice keyboard accessibility to implement it.
+
+### Restore defaults
+
+Provide a clearly labelled reset action for each theme.
+
+Ask for confirmation before discarding customised changes.
+
+### Persistence
+
+Use localStorage with versioned keys.
+
+Persist each theme's custom playlist independently.
+
+Preserve:
+
+- Added tracks.
+- Removed default tracks.
+- Track order.
+- User-edited metadata where appropriate.
+
+Handle missing, malformed, outdated or inaccessible localStorage gracefully.
+
+If saved data cannot be parsed, recover safely and explain that default settings have been restored where appropriate.
+
+Never overwrite the default catalogue with user edits.
+
+Do not store sensitive information.
+
+No sign-in is required.
+
+Explain in the interface, if necessary, that custom playlists are stored in this browser and do not automatically synchronise across devices.
+
+---
+
+# 9. CHANGE VIBE FUNCTIONALITY
+
+Create a compact Change Vibe button on every immersive theme screen.
+
+On activation, show the four themes other than the currently active theme.
+
+The selection interface should match the visual identity of VIBELOK.
+
+When the user chooses a new theme:
+
+- Update the active theme.
+- Load its correct supplied background.
+- Load its own customised or default playlist.
+- Update all theme-specific colours and design tokens.
+- Reset the theme-specific track selection sensibly.
+- Stop or transition the previous playback instance safely.
+- Avoid duplicate players.
+- Handle browser autoplay restrictions.
+- Keep the user in the immersive experience.
+
+Do not reload the entire website unnecessarily.
+
+Do not lose saved playlist changes.
+
+Persist the last selected theme if appropriate.
+
+Provide a way to return to the five-theme selection screen.
+
+---
+
+# 10. BACKGROUND AND ASSET IMPLEMENTATION
+
+Create a dedicated asset mapping rather than scattering image filenames throughout the code.
+
+Use paths relative to the public asset directory or another supported asset mechanism.
+
+Preserve the supplied filenames where practical.
+
+Do not invent a sandbox path or reference an image that does not exist in the project.
+
+Inspect all available attachments and determine whether Google AI Studio has actually included them in the project files.
+
+If images are available only as prompt attachments and are not automatically copied into the project, explain precisely where they need to be placed and make the asset paths configurable.
+
+Use an appropriate image format and responsive CSS:
+
+- Background covers the intended viewport.
+- Image aspect ratio is preserved as far as practical.
+- Positioning is theme-specific if needed.
+- Mobile cropping is handled intentionally.
+- Loading states do not reveal broken-image icons.
+- A fallback is shown if an image genuinely fails to load.
+
+Do not silently generate substitute images.
+
+The five supplied images are a core requirement of the design.
+
+---
+
+# 11. ACCESSIBILITY AND INTERACTION QUALITY
+
+Implement:
+
+- Semantic HTML.
+- Accessible button labels.
+- Keyboard navigation.
+- Visible focus indicators.
+- Appropriate contrast.
+- Accessible modal or drawer behaviour.
+- Escape-to-close where appropriate.
+- Focus management.
+- Reduced-motion support.
+- Touch-friendly controls.
+- Screen-reader-friendly playback status.
+- Clear error messages.
+
+Do not rely on hover effects to expose essential functionality.
+
+Do not use tiny controls.
+
+Do not disable browser navigation or keyboard behaviour unnecessarily.
+
+The website should remain usable without animation.
+
+---
+
+# 12. PERFORMANCE AND RELIABILITY
+
+Keep the application lightweight.
+
+Requirements:
+
+- Lazy-load non-essential assets.
+- Avoid unnecessary network requests.
+- Load the YouTube IFrame API only when needed.
+- Reuse the API loader instead of injecting duplicate script tags.
+- Avoid creating multiple player instances accidentally.
+- Clean up effects and event handlers.
+- Avoid unnecessary React re-renders.
+- Keep large image files optimised where possible.
+- Avoid excessive background animation.
+- Handle slow networks.
+- Handle failed image and player loading.
+- Prevent broken controls from crashing the application.
+- Prevent malformed saved playlists from crashing the application.
+
+Do not add analytics, advertisements, trackers or unnecessary third-party scripts.
+
+Do not claim unlimited traffic, unlimited free hosting or guaranteed lifetime free service.
+
+The application should not depend on Gemini at runtime unless a feature genuinely requires it.
+
+---
+
+# 13. SECURITY AND CONFIGURATION
+
+Use safe URL validation.
+
+Treat user-supplied song URLs as untrusted input.
+
+Do not insert user-provided strings as raw HTML.
+
+Do not introduce an unrestricted proxy for YouTube.
+
+Do not expose credentials.
+
+Do not ask users to paste secret API keys into public forms.
+
+If optional API keys are required for an optional feature, document their setup and use the supported secret-management mechanism where applicable.
+
+The base player should function with valid manually configured YouTube video IDs and must not depend on an unnecessary external search API.
+
+Do not introduce authentication or a database solely for playlist persistence.
+
+---
+
+# 14. SUGGESTED PROJECT ARCHITECTURE
+
+Use a clear, maintainable structure comparable to the following:
+
+src/
+  components/
+    ThemeCard.tsx
+    ThemeSelector.tsx
+    ImmersiveTheme.tsx
+    MusicPlayer.tsx
+    YouTubePlayer.tsx
+    ChangeVibe.tsx
+    PlaylistDrawer.tsx
+    AddTrackForm.tsx
+    ErrorState.tsx
+  data/
+    themes.ts
+  hooks/
+    useYouTubePlayer.ts
+    useCustomPlaylists.ts
+  lib/
+    youtube.ts
+    storage.ts
+    validation.ts
+  styles/
+    global.css
+    themes.css
+  App.tsx
+  main.tsx
+
+public/
+  images/
+    [the five supplied background images]
+
+This is a suggested structure, not a requirement to duplicate files unnecessarily.
+
+Keep data, playback logic, persistence, validation and visual components separate.
+
+Use TypeScript types for theme data, track data, player state and user customisations.
+
+Prefer a small number of reliable components over excessive abstraction.
+
+---
+
+# 15. ERROR HANDLING
+
+Implement useful user-facing handling for:
+
+- Missing background assets.
+- Invalid YouTube video IDs.
+- Videos that cannot be embedded.
+- Videos unavailable in the user's region.
+- Videos deleted or made private.
+- Browser autoplay being blocked.
+- Player API loading failure.
+- Playback errors.
+- Invalid playlist data.
+- LocalStorage failure.
+- Duplicate track additions.
+- Invalid URLs.
+- Empty playlists.
+- Previous/next actions at playlist boundaries.
+- Theme switching during playback.
+- Mobile layout overflow.
+
+The user must always have a reasonable recovery path.
+
+For unavailable tracks, show a concise message and allow the user to retry, remove the track or skip to another track.
+
+Do not crash the entire app because one song fails.
+
+Do not pretend an unavailable track is playing.
+
+---
+
+# 16. TESTING REQUIREMENTS
+
+After implementing the application, run the available development server and inspect the actual rendered website.
+
+Do not stop after writing code.
+
+Use the available runtime, preview and diagnostics to identify and correct errors.
+
+### Functional tests
+
+Verify:
+
+1. The opening screen shows exactly five themes.
+2. Each theme opens correctly.
+3. The correct supplied background appears for every theme.
+4. The selected theme's metadata and playlist load.
+5. Play and pause call the real player.
+6. Previous and next navigate the playlist correctly.
+7. The seek bar reflects the actual playback position and seeks correctly.
+8. Volume controls work where supported.
+9. Player events update the interface correctly.
+10. An unavailable video produces a useful error.
+11. Adding a valid video entry works.
+12. Malformed URLs are rejected.
+13. Removing a track works.
+14. Reordering tracks works.
+15. Changes persist after refresh.
+16. Changes remain isolated between themes.
+17. Reset restores the original playlist.
+18. Change Vibe presents the other four themes.
+19. Switching themes does not create multiple active players.
+20. Browser back navigation behaves sensibly.
+21. The layout works on mobile and desktop.
+22. No major console errors occur.
+23. No required control is decorative or non-functional.
+
+### Technical checks
+
+- Run the available build command.
+- Resolve TypeScript errors.
+- Resolve missing imports and dependencies.
+- Resolve broken asset paths.
+- Resolve obvious accessibility problems.
+- Check for incorrect React effect dependencies.
+- Check cleanup of the YouTube player and event handlers.
+- Check localStorage parsing and error handling.
+- Check that no secret keys are exposed.
+- Check that no fabricated API functionality exists.
+
+Do not claim a test passed if the runtime does not allow it to be executed.
+
+If a test cannot be completed, clearly identify what remains unverified.
+
+---
+
+# 17. VISUAL QUALITY CHECK
+
+Inspect the actual rendered result.
+
+Evaluate:
+
+- Does the landing page feel premium and distinctive?
+- Are the five themes visually differentiated?
+- Are the supplied backgrounds used correctly?
+- Is the main artwork the focal point?
+- Is the player positioned thoughtfully?
+- Is the official YouTube player properly accommodated?
+- Are text and controls readable?
+- Does the design work at mobile widths?
+- Are animations restrained and smooth?
+- Are there accidental empty spaces or overlapping elements?
+- Does the Change Vibe control feel integrated?
+- Does playlist management stay out of the way until needed?
+
+Correct obvious visual problems before declaring the initial implementation complete.
+
+Do not replace a well-designed layout with a generic template to make implementation easier.
+
+---
+
+# 18. DELIVERABLES
+
+Create the working application, not just documentation.
+
+The completed project must include:
+
+1. The theme selection screen.
+2. Five immersive theme experiences.
+3. Correct mapping for the five supplied backgrounds.
+4. The actual YouTube IFrame Player API integration.
+5. A reusable player component.
+6. Five playlists containing exactly 20 starter entries each.
+7. A clearly editable song catalogue.
+8. Add, remove and reorder playlist functionality.
+9. Browser-based playlist persistence.
+10. Reset-to-default functionality.
+11. Change Vibe navigation.
+12. Responsive desktop and mobile layouts.
+13. Loading, empty and error states.
+14. Data validation.
+15. Basic accessibility support.
+16. Working project configuration and dependencies.
+17. Successful available build checks.
+18. A concise README containing setup instructions, project structure, playlist editing instructions, image placement instructions and known limitations.
+
+Use VIBELOK as the working project name, but keep the name easy to change.
+
+Do not introduce paid services as a requirement.
+
+Do not add unrelated features such as user accounts, social networking, comments, chat, recommendations powered by paid AI, or an admin dashboard.
+
+---
+
+# 19. FINAL EXECUTION INSTRUCTIONS
+
+Follow this execution sequence:
+
+PHASE 1 — Inspect the supplied images, current project files, runtime and available tools.
+
+PHASE 2 — Establish the project architecture, theme data model and design system.
+
+PHASE 3 — Implement the theme selector and complete the first immersive theme.
+
+PHASE 4 — Integrate the real YouTube IFrame Player API and validate its behaviour.
+
+PHASE 5 — Implement the remaining themes, playlist editor and persistence.
+
+PHASE 6 — Validate all five 20-entry playlists and image mappings.
+
+PHASE 7 — Run the application, execute available tests and inspect the preview.
+
+PHASE 8 — Fix discovered errors and visual defects.
+
+PHASE 9 — Summarise the actual implementation and any remaining setup requirements.
+
+Work directly in the current project. Do not stop after presenting an architecture plan.
+
+Make sensible decisions without asking me about every minor detail.
+
+If a critical external dependency requires my action, such as enabling an optional API or configuring an environment setting, implement everything possible without it and explain the exact remaining action.
+
+If a requirement conflicts with an external platform's technical capabilities or terms, explain the conflict and implement the closest compliant alternative.
+
+Never silently replace a required feature with a mockup.
+
+Never claim that the application is complete merely because the code was generated.
+
+### FINAL ACCEPTANCE CRITERIA
+
+The initial implementation is complete only when:
+
+- The application launches in the available preview.
+- The five theme experiences exist.
+- The supplied backgrounds are mapped correctly.
+- All five playlists contain 20 editable entries each.
+- The official player integration is implemented.
+- Playback controls are connected to actual player state.
+- Playlist customisation and persistence work.
+- Theme switching works.
+- Important failure states are handled.
+- The available build checks pass.
+- Remaining external setup requirements and unverified behaviours are explicitly documented.
+
+Start building VIBELOK now.
